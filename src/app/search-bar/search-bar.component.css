@@ -1,0 +1,16 @@
+.search-bar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.submit-align .btn {
+  width: 100%;
+}
+
+.search-field, .submit-align {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

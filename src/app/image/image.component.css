@@ -1,0 +1,16 @@
+.image-align {
+    justify-content: center;
+    align-items: center;
+}
+
+.card-customize {
+    width: 18rem;
+    margin: 20px 30px;
+    cursor: pointer;
+}
+
+.spinner-grow-lg {
+    margin-top: 50px;
+    width: 7em;
+    height: 7em;
+}

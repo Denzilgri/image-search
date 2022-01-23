@@ -1,0 +1,18 @@
+<div class="row search-bar">
+    <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+        <div class="form-group row">
+            <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 search-field">
+                <!-- <label for="searchText">Flickr Image Search</label> -->
+                <input type="text" class="form-control" id="searchText" aria-describedby="searchHelp"
+                    placeholder="Enter Text" formControlName="searchText" />
+                <small [ngStyle]="{
+                    'display': validateInput() ? 'block' : 'none' 
+                }"
+                id="searchHelp" class="form-text invalid-feedback">Please enter a valid search text</small>
+            </div>
+            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 submit-align">
+                <button type="submit" [disabled]="!validateSubmit()" class="btn btn-primary">Sign in</button>
+            </div>
+        </div>
+    </form>
+</div>

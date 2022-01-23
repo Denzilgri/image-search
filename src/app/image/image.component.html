@@ -1,0 +1,22 @@
+<div *ngIf="results !== undefined && error === false" class="row image-align" infinite-scroll
+  [infiniteScrollDistance]="2" [infiniteScrollThrottle]="1000" (scrolled)="onScrollDown()">
+  <div *ngFor="let card of results?.photos; let i=index" (click)="onCardClick($event)" class="card card-customize col-12">
+    <img [src]="card.imgSrc" class="card-img-top" [id]="i" [alt]="card.title">
+    <!-- <div class="card-body">
+      <p class="card-text">{{ card.title }}</p>
+    </div> -->
+  </div>
+</div>
+<div *ngIf="loading===true">
+  <div class="d-flex justify-content-center">
+    <div class="spinner-grow text-primary spinner-grow-lg" role="status">
+    </div>
+  </div>
+</div>
+<div *ngIf="results !== undefined && error === true">
+  <div class="card">
+    <div class="card-body text-danger">
+      Something went wrong. Please try again with a valid search text.
+    </div>
+  </div>
+</div>
