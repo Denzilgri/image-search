@@ -24,7 +24,6 @@ export class ImageComponent implements OnInit, OnDestroy {
     this.loadingSubscription = this.flickrService.loading$.subscribe({next: (loading) => this.loading = loading});
     this.displaySubscription = this.flickrService.displayImages$.subscribe({
       next: (results: {photos: PhotoTile[], error: string, searchText: string }) => {
-        console.log('results: ', results);
         this.results = results;
         this.searchText = results.searchText
         this.error = false;
@@ -36,14 +35,12 @@ export class ImageComponent implements OnInit, OnDestroy {
 
   onScrollDown() {
     if (this.results !== undefined) {
-      console.log('scolled!', this.searchText, this.pageNum);
       const resultsObservable = this.flickrService.fetchMoreImages(
         this.searchText,
         this.pageNum++
       );
       resultsObservable.subscribe({
         next: (photos) => {
-          console.log('new list', photos);
           this.results.photos = this.results.photos.concat(photos);
           this.error = false;
         },
@@ -65,7 +62,6 @@ export class ImageComponent implements OnInit, OnDestroy {
     const secret = imgAttr[1];
     this.flickrService.fetchImageInfo(id, secret).subscribe({
       next: (photoInfo) => {
-        console.log('asda', photoInfo);
         this.flickrService.displayImageInfo(photoInfo);
       },
       error: (err) => {

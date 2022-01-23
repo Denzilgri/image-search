@@ -23,12 +23,10 @@ export class SearchBarComponent implements OnInit {
   }
 
   onSubmit() {
-    // console.log(this.searchForm);
     const searchText = this.searchForm.value.searchText
     const resultsObservable = this.flickrService.fetchImages(searchText);
     resultsObservable.subscribe({
       next: (photos) => {
-        console.log(photos);
         this.displayOutput = {
           photos,
           error: '',

@@ -2,9 +2,6 @@
   [infiniteScrollDistance]="2" [infiniteScrollThrottle]="1000" (scrolled)="onScrollDown()">
   <div *ngFor="let card of results?.photos; let i=index" (click)="onCardClick($event)" class="card card-customize col-12">
     <img [src]="card.imgSrc" class="card-img-top" [id]="i" [alt]="card.title">
-    <!-- <div class="card-body">
-      <p class="card-text">{{ card.title }}</p>
-    </div> -->
   </div>
 </div>
 <div *ngIf="loading===true">

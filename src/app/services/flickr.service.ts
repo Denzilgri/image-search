@@ -17,7 +17,7 @@ export class FlickrService implements OnInit {
     error: string;
     searchText: string;
   }>();
-  displayImageInfo$ = new Subject<PhotoInfo | string>();
+  displayImageInfo$ = new Subject<any>();
   loading$ = new Subject<boolean>();
 
   constructor(private http: HttpClient) {}
@@ -70,7 +70,6 @@ export class FlickrService implements OnInit {
       '&per_page=20&safe_search=1&page=' +
       pageNum;
 
-    console.log(pageNum, searchText, url);
 
     return this.http.get<{ [photos: string]: Photos }>(url).pipe(
       map((response) => {
@@ -96,7 +95,7 @@ export class FlickrService implements OnInit {
     this.displayImages$.next(results);
   }
 
-  displayImageInfo(info: PhotoInfo | string) {
+  displayImageInfo(info: any) {
     this.displayImageInfo$.next(info);
   }
 
