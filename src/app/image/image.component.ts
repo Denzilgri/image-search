@@ -33,6 +33,7 @@ export class ImageComponent implements OnInit, OnDestroy {
     });
   }
 
+  // the function handles infinite scrolling
   onScrollDown() {
     if (this.results !== undefined) {
       const resultsObservable = this.flickrService.fetchMoreImages(
