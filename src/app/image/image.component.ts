@@ -54,6 +54,7 @@ export class ImageComponent implements OnInit, OnDestroy {
     }
   }
 
+  // event handler for card clicks
   onCardClick(event: Event) {
     this.clickService.openModal(true);
     const idx = parseInt((<HTMLInputElement>event.target).id);
